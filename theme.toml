@@ -1,18 +1,19 @@
-name = "Parzzix"
+name = "ParzzixMB"
 license = "MIT"
-licenselink = "https://github.com/yourname/parzzix/blob/main/LICENSE"
-description = "A clean, minimalist Hugo theme that replicates the design aesthetic of blog.timapple.com. Features responsive design, excellent typography, and fast performance."
-homepage = "https://github.com/yourname/parzzix"
-tags = ["blog", "minimal", "clean", "responsive", "typography", "fast", "simple"]
-features = ["responsive", "typography", "minimal-design", "fast-loading", "accessibility"]
+licenselink = "https://github.com/timappledotcom/ParzzixMB/blob/main/LICENSE"
+description = "A clean, minimalist Hugo theme designed for microblogging with dual content types: long-form blog posts and short microblog entries."
+homepage = "https://github.com/timappledotcom/ParzzixMB"
+tags = ["blog", "microblog", "minimal", "clean", "responsive", "typography", "fast", "simple"]
+features = ["responsive", "microblog", "timeline", "dual-content", "minimal-design", "fast-loading", "accessibility"]
 min_version = "0.80.0"
 
-[author]
-  name = "Theme Developer"
-  homepage = "https://github.com/timappledotcom"
+# Micro.blog specific configuration
+[microblog]
+  version = "1.0"
+  posts_section = "posts"
+  blog_section = "blog" 
+  timeline_posts = 20
 
-# Original design inspiration
-[original]
-  name = "Parzzix"
-  homepage = "https://blog.timapple.com"
-  author = "Tim Apple"
+[author]
+  name = "Tim Apple"
+  homepage = "https://github.com/timappledotcom"
