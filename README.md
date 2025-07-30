@@ -1,6 +1,6 @@
-# Parzzix Hugo Theme
+# Parzzix Microblog Theme
 
-A clean, minimalist Hugo theme inspired by Tpika.page design aesthetic. Parzzix focuses on readability, performance, and simplicity while providing modern features for bloggers and writers.
+A clean, minimalist Hugo theme designed for microblogging. Parzzix provides two distinct content types: long-form blog posts with titles and short microblog posts without titles, perfect for thoughts, photos, and quick updates.
 
 ![Theme Preview](https://via.placeholder.com/800x400/2C3E50/FFFFFF?text=Parzzix+Theme+Preview)
 
@@ -19,9 +19,10 @@ A clean, minimalist Hugo theme inspired by Tpika.page design aesthetic. Parzzix 
 - **Footer Social Links**: Organized social media presence in the footer
 
 ### 📊 **Content Features**
-- **Reading Time Estimation**: Shows estimated reading time for posts
-- **Post Metadata**: Configurable display of date, author, tags, and reading time
-- **Post Summaries**: Excerpt display on list pages
+- **Dual Content Types**: Blog posts with titles (year-based archive) and Posts without titles (timeline flow)
+- **Microblog Timeline**: Chronological feed mixing both content types on homepage
+- **Year-Based Blog Archive**: Traditional blog organization for long-form posts
+- **Timeline Posts**: Flow-based display for quick thoughts and photos
 - **RSS Feed Support**: Built-in RSS feed generation
 - **Draft Support**: Preview drafts in development mode
 

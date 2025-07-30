@@ -1,5 +1,5 @@
 {{ define "main" }}
-<div class="microblog-archive">
+<div class="blog-archive">
     <div class="container">
         {{ if .Title }}
         <header class="page-header">
@@ -9,21 +9,27 @@
             {{ end }}
             {{ if .Content }}
             <div class="page-content">
-                {{ .Content }}
-            </div>
+                {{ .Content }}\n            </div>
             {{ end }}
         </header>
         {{ end }}
 
-        <div class="timeline-posts">
-            {{ $posts := .Pages }}
+        <div class="posts-by-year">
+            {{ $posts := where .Pages "Params.title" "!=" nil }}
             {{ if gt (len $posts) 0 }}
-                {{ range $posts }}
-                    {{ partial "microblog-post.html" . }}
+                {{ range $posts.GroupByDate "2006" }}
+                <section class="year-group">
+                    <h2 class="year-heading">{{ .Key }}</h2>
+                    <div class="posts-list">
+                        {{ range .Pages }}
+                            {{ partial "blog-summary.html" . }}
+                        {{ end }}
+                    </div>
+                </section>
                 {{ end }}
             {{ else }}
                 <div class="no-posts">
-                    <p>No posts found.</p>
+                    <p>No blog posts found.</p>
                 </div>
             {{ end }}
         </div>

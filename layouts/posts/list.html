@@ -16,14 +16,14 @@
         {{ end }}
 
         <div class="timeline-posts">
-            {{ $posts := .Pages }}
+            {{ $posts := where .Pages "Params.title" "==" nil }}
             {{ if gt (len $posts) 0 }}
                 {{ range $posts }}
                     {{ partial "microblog-post.html" . }}
                 {{ end }}
             {{ else }}
                 <div class="no-posts">
-                    <p>No posts found.</p>
+                    <p>No microblog posts found.</p>
                 </div>
             {{ end }}
         </div>

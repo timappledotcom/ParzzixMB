@@ -1,0 +1,86 @@
+baseURL = 'https://yourmicroblog.com/'
+languageCode = 'en-us'
+title = "Your Microblog"
+theme = 'parzzix'
+
+# Enable pagination for timeline
+paginate = 20
+paginatePath = "page"
+
+# Set main sections for microblog content
+[params]
+mainSections = ["posts", "blog"]
+
+# Site description for microblog
+description = "A personal microblog sharing thoughts, links, and moments."
+author = "Your Name"
+email = "your.email@example.com"
+
+# Microblog-specific settings
+[params.microblog]
+# Show full content for untitled posts in timeline
+showFullContentForUntitled = true
+# Limit timeline posts on homepage
+timelinePosts = 20
+# Enable JSON Feed
+enableJSONFeed = true
+
+# Social media links - important for microblog
+[params.social]
+x = "https://x.com/yourusername"
+mastodon = "https://mastodon.social/@yourusername"
+github = "https://github.com/yourusername"
+email = "mailto:your.email@example.com"
+rss = true
+
+# Theme customization for microblog
+[params.theme]
+showReadingTime = false  # Not needed for short posts
+showPostDate = true
+showPostAuthor = false   # Usually single author
+showPostTags = true
+showPostSummary = false  # Show full content instead
+
+# Menu configuration
+[menu]
+  [[menu.main]]
+    name = "Timeline"
+    url = "/"
+    weight = 1
+[[menu.main]]
+    name = "Blog"
+    url = "/blog/"
+    weight = 2
+  [[menu.main]]
+    name = "Posts"
+    url = "/posts/"
+    weight = 3
+  [[menu.main]]
+    name = "About"
+    url = "/about/"
+    weight = 4
+
+# Output formats for feeds
+[outputs]
+home = ["HTML", "RSS", "JSON"]
+section = ["HTML", "RSS"]
+
+# RSS configuration for microblog
+[rss]
+limit = 50
+
+# Markup configuration
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true  # Allow HTML in markdown for rich content
+
+# Create custom taxonomy for microblog
+[taxonomies]
+tag = "tags"
+category = "categories"
+
+# Custom archetype for microblog posts
+[archetypes]
+blog = "blog.md"
+posts = "posts.md"

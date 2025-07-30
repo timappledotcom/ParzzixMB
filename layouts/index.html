@@ -1,5 +1,5 @@
 {{ define "main" }}
-<div class="homepage">
+<div class="microblog-timeline">
     <div class="container">
         {{ if .Site.Params.description }}
         <div class="site-description">
@@ -7,19 +7,31 @@
         </div>
         {{ end }}
 
-        <div class="posts-by-year">
-            {{ $posts := where .Site.RegularPages "Type" "in" .Site.Params.mainSections }}
-            {{ range $posts.GroupByDate "2006" }}
-            <section class="year-group">
-                <h2 class="year-heading">{{ .Key }}</h2>
-                <div class="posts-list">
-                    {{ range .Pages }}
-                        {{ partial "summary.html" . }}
+        <div class="timeline-posts">
+            {{ $allPosts := where .Site.RegularPages "Type" "in" .Site.Params.mainSections }}
+            {{ $recentPosts := $allPosts | first 20 }}
+            {{ if gt (len $recentPosts) 0 }}
+                {{ range $recentPosts }}
+                    {{ if .Title }}
+                        <!-- Blog post with title -->
+                        {{ partial "microblog-post.html" . }}
+                    {{ else }}
+                        <!-- Microblog post without title -->
+                        {{ partial "microblog-post.html" . }}
                     {{ end }}
+                {{ end }}
+            {{ else }}
+                <div class="no-posts">
+                    <p>No posts found.</p>
                 </div>
-            </section>
             {{ end }}
         </div>
+
+        {{ if gt (len (where .Site.RegularPages "Type" "in" .Site.Params.mainSections)) 20 }}
+        <div class="timeline-pagination">
+            <a href="{{ "posts" | relURL }}" class="view-all-posts">View all posts →</a>
+        </div>
+        {{ end }}
     </div>
 </div>
 {{ end }}
