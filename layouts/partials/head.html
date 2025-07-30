@@ -94,5 +94,4 @@
 {{ end }}
 
 <!-- Stylesheets -->
-{{ $style := resources.Get "css/main.scss" | css.Sass | resources.Minify }}
-<link rel="stylesheet" href="{{ $style.Permalink }}">
+<link rel="stylesheet" href="{{ "css/main.css" | relURL }}">
